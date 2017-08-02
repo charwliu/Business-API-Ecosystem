@@ -11,49 +11,49 @@ DBPWD = "toor"
 DBHOST = "localhost"
 DBPORT = 3306
 
-APIS = [{"url": "https://github.com/FIWARE-TMForum/DSPRODUCTCATALOG2.git",
+APIS = [{"url": "https://github.com/charwliu/DSPRODUCTCATALOG2.git",
          "branch": "v5.4.1",
          "bbdd": "DSPRODUCTCATALOG2",
          "war": "target/DSProductCatalog.war",
          "root": "DSProductCatalog",
          "name": "catalog",
          "resourcename": "jdbc/pcatv2"},
-        {"url": "https://github.com/FIWARE-TMForum/DSPRODUCTORDERING.git",
+        {"url": "https://github.com/charwliu/DSPRODUCTORDERING.git",
          "branch": "v5.4.1",
          "bbdd": "DSPRODUCTORDERING",
          "war": "target/DSProductOrdering.war",
          "root": "DSProductOrdering",
          "name": "ordering",
          "resourcename": "jdbc/podbv2"},
-        {"url": "https://github.com/FIWARE-TMForum/DSPRODUCTINVENTORY.git",
+        {"url": "https://github.com/charwliu/DSPRODUCTINVENTORY.git",
          "branch": "v5.4.1",
          "bbdd": "DSPRODUCTINVENTORY",
          "war": "target/DSProductInventory.war",
          "root": "DSProductInventory",
          "name": "inventory",
          "resourcename": "jdbc/pidbv2"},
-        {"url": "https://github.com/FIWARE-TMForum/DSPARTYMANAGEMENT.git",
+        {"url": "https://github.com/charwliu/DSPARTYMANAGEMENT.git",
          "branch": "v5.4.1",
          "bbdd": "DSPARTYMANAGEMENT",
          "war": "target/DSPartyManagement.war",
          "root": "DSPartyManagement",
          "name": "party",
          "resourcename": "jdbc/partydb"},
-        {"url": "https://github.com/FIWARE-TMForum/DSBILLINGMANAGEMENT.git",
+        {"url": "https://github.com/charwliu/DSBILLINGMANAGEMENT.git",
          "branch": "v5.4.1",
          "bbdd": "DSBILLINGMANAGEMENT",
          "war": "target/DSBillingManagement.war",
          "root": "DSBillingManagement",
          "name": "billing",
          "resourcename": "jdbc/bmdbv2"},
-        {"url": "https://github.com/FIWARE-TMForum/DSCUSTOMER.git",
+        {"url": "https://github.com/charwliu/DSCUSTOMER.git",
          "branch": "v5.4.1",
          "bbdd": "DSCUSTOMER",
          "war": "target/DSCustomerManagement.war",
          "root": "DSCustomerManagement",
          "name": "customer",
          "resourcename": "jdbc/customerdbv2"},
-        {"url": "https://github.com/FIWARE-TMForum/DSUSAGEMANAGEMENT.git",
+        {"url": "https://github.com/charwliu/DSUSAGEMANAGEMENT.git",
          "branch": "v5.4.1",
          "bbdd": "DSUSAGEMANAGEMENT",
          "war": "target/DSUsageManagement.war",
@@ -61,18 +61,18 @@ APIS = [{"url": "https://github.com/FIWARE-TMForum/DSPRODUCTCATALOG2.git",
          "name": "usage",
          "resourcename": "jdbc/usagedbv2"}]
 
-rss = {"url": "https://github.com/FIWARE-TMForum/business-ecosystem-rss.git",
+rss = {"url": "https://github.com/charwliu/business-ecosystem-rss.git",
        "branch": "v5.4.1",
        "bbdd": "RSS",
        "war": "fiware-rss/target/DSRevenueSharing.war",
        "name": "rss",
        "root": "DSRevenueSharing"}
 
-charg = {"url": "https://github.com/FIWARE-TMForum/business-ecosystem-charging-backend.git",
+charg = {"url": "https://github.com/charwliu/business-ecosystem-charging-backend.git",
          "branch": "v5.4.1",
          "name": "charging"}
 
-proxy = {"url": "https://github.com/FIWARE-TMForum/business-ecosystem-logic-proxy.git",
+proxy = {"url": "https://github.com/charwliu/business-ecosystem-logic-proxy.git",
          "branch": "v5.4.1"}
 
 
@@ -175,14 +175,14 @@ def generate_mysql_url(db):
     return "jdbc:mysql://{}:{}/{}".format(DBHOST, DBPORT, db)
 
 
-# asadmin create-jdbc-connection-pool --restype java.sql.Driver --driverclassname com.mysql.jdbc.Driver --property 'user=<user>:password=<pwd>:URL="<url>"' <name>
+# asadmin create-jdbc-connection-pool --restype java.sql.Driver --driverclassname org.mariadb.jdbc.Driver --property 'user=<user>:password=<pwd>:URL="<url>"' <name>
 def pool(name, user, pwd, url):
     print("Create pool {}".format(name))
     asadmin("create-jdbc-connection-pool",
             "--restype",
             "java.sql.Driver",
             "--driverclassname",
-            "com.mysql.jdbc.Driver",
+            "org.mariadb.jdbc.Driver",
             "--property",
             "user={}:password={}:URL={}".format(user, pwd, url.replace(":", "\:")),
             name)

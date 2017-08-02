@@ -4,8 +4,8 @@ RUN apt-get update
 RUN apt-get install -y --fix-missing python2.7 python-pip git wget unzip maven mysql-client openjdk-8-jdk
 
 # Download and install glassfish
-RUN wget http://download.java.net/glassfish/4.1/release/glassfish-4.1.zip
-RUN unzip glassfish-4.1.zip
+RUN wget http://download.oracle.com/glassfish/4.1.2/release/glassfish-4.1.2.zip
+RUN unzip glassfish-4.1.2.zip
 
 RUN pip install sh
 
@@ -21,7 +21,7 @@ WORKDIR /apis
 
 RUN mkdir wars
 
-RUN git clone https://github.com/FIWARE-TMForum/DSPRODUCTCATALOG2.git
+RUN git clone https://github.com/charwliu/DSPRODUCTCATALOG2.git
 
 WORKDIR DSPRODUCTCATALOG2
 
@@ -46,7 +46,7 @@ RUN mv ./target/DSProductCatalog.war ../wars/
 WORKDIR ../
 
 # Next api Docker
-RUN git clone https://github.com/FIWARE-TMForum/DSPRODUCTORDERING.git
+RUN git clone https://github.com/charwliu/DSPRODUCTORDERING.git
 
 WORKDIR DSPRODUCTORDERING
 
@@ -71,7 +71,7 @@ RUN mv ./target/DSProductOrdering.war ../wars/
 WORKDIR ../
 
 # Next api Docker
-RUN git clone https://github.com/FIWARE-TMForum/DSPRODUCTINVENTORY.git
+RUN git clone https://github.com/charwliu/DSPRODUCTINVENTORY.git
 
 WORKDIR DSPRODUCTINVENTORY
 
@@ -96,7 +96,7 @@ RUN mv ./target/DSProductInventory.war ../wars/
 WORKDIR ../
 
 # Next api Docker
-RUN git clone https://github.com/FIWARE-TMForum/DSPARTYMANAGEMENT.git
+RUN git clone https://github.com/charwliu/DSPARTYMANAGEMENT.git
 
 WORKDIR DSPARTYMANAGEMENT
 
@@ -121,7 +121,7 @@ RUN mv ./target/DSPartyManagement.war ../wars/
 WORKDIR ../
 
 # Next api Docker
-RUN git clone https://github.com/FIWARE-TMForum/DSBILLINGMANAGEMENT.git
+RUN git clone https://github.com/charwliu/DSBILLINGMANAGEMENT.git
 
 WORKDIR DSBILLINGMANAGEMENT
 
@@ -146,7 +146,7 @@ RUN mv ./target/DSBillingManagement.war ../wars/
 WORKDIR ../
 
 # Next api Docker
-RUN git clone https://github.com/FIWARE-TMForum/DSCUSTOMER.git
+RUN git clone https://github.com/charwliu/DSCUSTOMER.git
 
 WORKDIR DSCUSTOMER
 
@@ -171,7 +171,7 @@ RUN mv ./target/DSCustomerManagement.war ../wars/
 WORKDIR ../
 
 # Next api Docker
-RUN git clone https://github.com/FIWARE-TMForum/DSUSAGEMANAGEMENT.git
+RUN git clone https://github.com/charwliu/DSUSAGEMANAGEMENT.git
 
 WORKDIR DSUSAGEMANAGEMENT
 
@@ -196,7 +196,7 @@ RUN mv ./target/DSUsageManagement.war ../wars/
 WORKDIR ../
 
 # Compile RSS
-RUN git clone https://github.com/FIWARE-TMForum/business-ecosystem-rss.git
+RUN git clone https://github.com/charwliu/business-ecosystem-rss.git
 
 WORKDIR business-ecosystem-rss
 
@@ -220,7 +220,7 @@ WORKDIR ../
 RUN apt-get update
 RUN apt-get install -y --fix-missing gcc mongodb wkhtmltopdf xvfb python-dev build-essential libssl-dev libffi-dev apache2 libapache2-mod-wsgi
 
-RUN git clone https://github.com/FIWARE-TMForum/business-ecosystem-charging-backend.git
+RUN git clone https://github.com/charwliu/business-ecosystem-charging-backend.git
 
 WORKDIR business-ecosystem-charging-backend
 
@@ -258,7 +258,7 @@ WORKDIR /apis
 
 # Deploy logic proxy
 
-RUN git clone https://github.com/FIWARE-TMForum/business-ecosystem-logic-proxy
+RUN git clone https://github.com/charwliu/business-ecosystem-logic-proxy
 
 WORKDIR /
 
